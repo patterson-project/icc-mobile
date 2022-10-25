@@ -3,7 +3,7 @@ import { Text, View } from "../components/Themed";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { StyleSheet } from "react-native";
 
-const powerScreen = () => {
+const PowerScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>power Screen</Text>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default powerScreen;
+export default PowerScreen;

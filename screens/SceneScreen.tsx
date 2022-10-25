@@ -12,7 +12,7 @@ import useColorScheme from "../hooks/useColorScheme";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-const sceneScreen = () => {
+const SceneScreen = () => {
   const colorScheme = useColorScheme();
 
   return (
@@ -64,4 +64,4 @@ function TabBarIcon(props: {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
-export default sceneScreen;
+export default SceneScreen;
