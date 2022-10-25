@@ -2,8 +2,9 @@ import * as React from "react";
 import { Text, View } from "../components/Themed";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { StyleSheet } from "react-native";
+import { RootStackScreenProps } from "../types";
 
-const DeviceScreen = () => {
+const DeviceScreen = ({ navigation }: RootStackScreenProps<"DeviceScreen">) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Device Screen</Text>
