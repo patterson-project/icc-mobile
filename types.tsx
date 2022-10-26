@@ -26,7 +26,7 @@ export type RootTabParamList = {
   TabTwo: undefined;
 };
 
-export type RootStackScreenProps<Screen extends keyof RootDrawerParamList> =
+export type RootDrawerScreenProps<Screen extends keyof RootDrawerParamList> =
   NativeStackScreenProps<RootDrawerParamList, Screen>;
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
