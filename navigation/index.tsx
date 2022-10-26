@@ -13,6 +13,7 @@ import SceneScreen from "../screens/SceneScreen";
 import DeviceScreen from "../screens/DevicesScreen";
 import PowerScreen from "../screens/PowerScreen";
 import SettingScreen from "../screens/SettingScreen";
+import { RootDrawerParamList } from "../types";
 
 export default function Navigation({
   colorScheme,
@@ -30,14 +31,14 @@ export default function Navigation({
 }
 
 function RootNavigator() {
-  const Drawer = createDrawerNavigator();
+  const Drawer = createDrawerNavigator<RootDrawerParamList>();
   return (
-    <Drawer.Navigator initialRouteName="Scenes">
-      <Drawer.Screen name="Scenes" component={SceneScreen} />
-      <Drawer.Screen name="Lighting" component={LightingScreen} />
-      <Drawer.Screen name="Devices" component={DeviceScreen} />
-      <Drawer.Screen name="Power" component={PowerScreen} />
-      <Drawer.Screen name="Settings" component={SettingScreen} />
+    <Drawer.Navigator>
+      <Drawer.Screen name="SceneScreen" component={SceneScreen} />
+      <Drawer.Screen name="DeviceScreen" component={DeviceScreen} />
+      <Drawer.Screen name="PowerScreen" component={PowerScreen} />
+      <Drawer.Screen name="LightingScreen" component={LightingScreen} />
+      <Drawer.Screen name="SettingScreen" component={SettingScreen} />
     </Drawer.Navigator>
   );
 }
