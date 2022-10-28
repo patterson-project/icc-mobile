@@ -8,15 +8,20 @@ import {
   DefaultTheme,
   NavigationContainer,
 } from "@react-navigation/native";
+import { DrawerItem, createDrawerNavigator } from "@react-navigation/drawer";
 
 import DeviceScreen from "../screens/DevicesScreen";
+import { FC } from "react";
 import LightingScreen from "../screens/LightingScreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 import PowerScreen from "../screens/PowerScreen";
 import { RootDrawerParamList } from "../types";
 import SceneScreen from "../screens/SceneScreen";
 import SettingScreen from "../screens/SettingScreen";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Drawer = createDrawerNavigator<RootDrawerParamList>();
+const Stack = createNativeStackNavigator<RootDrawerParamList>();
 
 const styles = StyleSheet.create({
   container: {
@@ -31,15 +36,40 @@ const styles = StyleSheet.create({
   },
 });
 
+interface ICustomDrawerComponent {
+  label: string;
+  navigate: any;
+}
+
+const CustomDrawerComponent: FC<ICustomDrawerComponent> = (props) => {
+  return (
+    <DrawerItem
+      label={props.label}
+      onPress={() => {
+        props.navigate;
+      }}
+      style={styles.bottomDrawerItem}
+    />
+  );
+};
+
+const settingScreen = () => {
+  return <Drawer.Screen name="SettingScreen" component={SettingScreen} />;
+};
+
 function RootNavigator() {
-  const Drawer = createDrawerNavigator<RootDrawerParamList>();
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="SceneScreen" component={SceneScreen} />
       <Drawer.Screen name="DeviceScreen" component={DeviceScreen} />
       <Drawer.Screen name="PowerScreen" component={PowerScreen} />
       <Drawer.Screen name="LightingScreen" component={LightingScreen} />
-      <Drawer.Screen name="SettingScreen" component={SettingScreen} />
+      <CustomDrawerComponent
+        label="Settings"
+        navigate={
+          <Drawer.Screen name="SettingScreen" component={SettingScreen} />
+        }
+      />
     </Drawer.Navigator>
   );
 }
