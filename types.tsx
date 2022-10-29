@@ -23,6 +23,11 @@ export type RootTabParamList = {
   TabTwo: undefined;
 };
 
+export type RootSettingsParamList = {
+  SettingsRoot: undefined;
+  IPEdit: undefined;
+};
+
 export type RootDrawerScreenProps<Screen extends keyof RootDrawerParamList> =
   NativeStackScreenProps<RootDrawerParamList, Screen>;
 
@@ -31,3 +36,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootDrawerParamList>
   >;
+
+export type RootSettingsScreenProps<
+  Screen extends keyof RootSettingsParamList
+> = NativeStackScreenProps<RootSettingsParamList, Screen>;

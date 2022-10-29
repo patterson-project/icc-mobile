@@ -8,20 +8,17 @@ import {
   DefaultTheme,
   NavigationContainer,
 } from "@react-navigation/native";
-import { DrawerItem, createDrawerNavigator } from "@react-navigation/drawer";
 
 import DeviceScreen from "../screens/DevicesScreen";
-import { FC } from "react";
 import LightingScreen from "../screens/LightingScreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 import PowerScreen from "../screens/PowerScreen";
 import { RootDrawerParamList } from "../types";
 import SceneScreen from "../screens/SceneScreen";
 import SettingScreen from "../screens/SettingScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
-const Stack = createNativeStackNavigator<RootDrawerParamList>();
 
 const styles = StyleSheet.create({
   container: {
@@ -36,39 +33,33 @@ const styles = StyleSheet.create({
   },
 });
 
-interface ICustomDrawerComponent {
-  label: string;
-  navigate: any;
-}
-
-const CustomDrawerComponent: FC<ICustomDrawerComponent> = (props) => {
-  return (
-    <DrawerItem
-      label={props.label}
-      onPress={() => {
-        props.navigate;
-      }}
-      style={styles.bottomDrawerItem}
-    />
-  );
-};
-
-const settingScreen = () => {
-  return <Drawer.Screen name="SettingScreen" component={SettingScreen} />;
-};
-
 function RootNavigator() {
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="SceneScreen" component={SceneScreen} />
-      <Drawer.Screen name="DeviceScreen" component={DeviceScreen} />
-      <Drawer.Screen name="PowerScreen" component={PowerScreen} />
-      <Drawer.Screen name="LightingScreen" component={LightingScreen} />
-      <CustomDrawerComponent
-        label="Settings"
-        navigate={
-          <Drawer.Screen name="SettingScreen" component={SettingScreen} />
-        }
+    <Drawer.Navigator initialRouteName="SceneScreen">
+      <Drawer.Screen
+        name="SceneScreen"
+        component={SceneScreen}
+        options={{ title: "Scenes" }}
+      />
+      <Drawer.Screen
+        name="DeviceScreen"
+        component={DeviceScreen}
+        options={{ title: "Devices" }}
+      />
+      <Drawer.Screen
+        name="PowerScreen"
+        component={PowerScreen}
+        options={{ title: "Power" }}
+      />
+      <Drawer.Screen
+        name="LightingScreen"
+        component={LightingScreen}
+        options={{ title: "Lighting" }}
+      />
+      <Drawer.Screen
+        name="SettingScreen"
+        component={SettingScreen}
+        options={{ title: "Settings" }}
       />
     </Drawer.Navigator>
   );

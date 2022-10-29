@@ -1,7 +1,7 @@
-import { LinkingOptions } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
-import { RootDrawerParamList } from '../types';
 
+import { LinkingOptions } from '@react-navigation/native';
+import { RootDrawerParamList } from '../types';
 
 const linking: LinkingOptions<RootDrawerParamList> = {
   prefixes: [Linking.createURL('/')],
@@ -10,6 +10,9 @@ const linking: LinkingOptions<RootDrawerParamList> = {
       Root: {
         screens: {
           DeviceScreen: 'DeviceScreen',
+          SceneScreen: 'SceneScreen',
+          SettingScreen: 'SettingScreen',
+          LightingScreen: 'LightingScreen',
           PowerScreen: 'PowerScreen',
         },
       },
