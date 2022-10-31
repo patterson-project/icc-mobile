@@ -4,8 +4,6 @@ const globalStyles = StyleSheet.create({
     container: {
       paddingTop: 20,
       flex: 1,
-      alignItems: "center",
-      justifyContent: "flex-start",
     },
     title: {
       fontSize: 20,
@@ -17,12 +15,7 @@ const globalStyles = StyleSheet.create({
       padding: 10,
       borderRadius: 10,
     },
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding:10,
-    },
+
     separator: {
       marginVertical: 30,
       height: 1,

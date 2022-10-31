@@ -20,6 +20,36 @@ const styles = StyleSheet.create({
   iPAddressText: {
     fontSize: 15,
   },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 10,
+    borderColor: "#a3a29e",
+  },
+  leftColumn: {
+    borderRadius: 10,
+    height: 40,
+    flex: 3,
+    alignContent: "flex-start",
+    padding: 10,
+  },
+  rightColumn: {
+    borderRadius: 10,
+    height: 40,
+    flex: 3,
+    alignContent: "flex-start",
+    padding: 10,
+  },
+  gridContainer: {
+    padding: 20,
+    flex: 1,
+    height: "50%",
+    borderRadius: 10,
+    flexDirection: "row",
+    backgroundColor: "#aeaeb2",
+  },
 });
 
 function SettingsRoot({ navigation }: RootSettingsScreenProps<"SettingsRoot">) {
@@ -39,13 +69,18 @@ function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
   const [text, onChangeNumber] = useState(undefined);
   return (
     <View style={globalStyles.container}>
-      <TextInput
-        style={globalStyles.input}
-        onChangeText={text}
-        value={text}
-        placeholder="IP Address"
-        keyboardType="numeric"
-      />
+      <View style={styles.gridContainer}>
+        <View style={styles.leftColumn}></View>
+        <View style={styles.rightColumn}>
+          <TextInput
+            style={styles.input}
+            onChangeText={text}
+            value={text}
+            placeholder="IP Address"
+            keyboardType="numeric"
+          />
+        </View>
+      </View>
     </View>
   );
 }
