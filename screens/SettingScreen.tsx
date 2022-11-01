@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { RootSettingsParamList, RootSettingsScreenProps } from "../types";
+import { SectionView, Text, View } from "../components/Themed";
 import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { Text, View } from "../components/Themed";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import globalStyles from "../constants/Styles";
@@ -69,18 +69,15 @@ function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
   const [text, onChangeNumber] = useState(undefined);
   return (
     <View style={globalStyles.container}>
-      <View style={styles.gridContainer}>
-        <View style={styles.leftColumn}></View>
-        <View style={styles.rightColumn}>
-          <TextInput
-            style={styles.input}
-            onChangeText={text}
-            value={text}
-            placeholder="IP Address"
-            keyboardType="numeric"
-          />
-        </View>
-      </View>
+      <SectionView>
+        <TextInput
+          style={styles.input}
+          onChangeText={text}
+          value={text}
+          placeholder="IP Address"
+          keyboardType="numeric"
+        />
+      </SectionView>
     </View>
   );
 }
