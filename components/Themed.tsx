@@ -1,8 +1,4 @@
-import {
-  Text as DefaultText,
-  View as DefaultView,
-  StyleSheet,
-} from "react-native";
+import { Text as DefaultText, View as DefaultView } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -44,26 +40,4 @@ export function View(props: ViewProps) {
   );
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
-}
-
-export function SectionView(props: ViewProps) {
-  const { ...otherProps } = props;
-  const backgroundColor = useThemeColor(
-    { light: "#e5e5ea", dark: "#1c1c1e" },
-    "background"
-  );
-  const styles = StyleSheet.create({
-    container: {
-      padding: 20,
-      flex: 1,
-      borderRadius: 10,
-      flexDirection: "row",
-    },
-  });
-  return (
-    <DefaultView
-      style={[{ backgroundColor }, styles.container]}
-      {...otherProps}
-    />
-  );
 }

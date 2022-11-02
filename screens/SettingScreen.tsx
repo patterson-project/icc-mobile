@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { RootSettingsParamList, RootSettingsScreenProps } from "../types";
-import { SectionView, Text, View } from "../components/Themed";
 import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Text, View } from "../components/Themed";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import globalStyles from "../constants/Styles";
@@ -42,19 +42,17 @@ const styles = StyleSheet.create({
     alignContent: "flex-start",
     padding: 10,
   },
-  gridContainer: {
-    padding: 20,
-    flex: 1,
-    height: "50%",
+  sectionViewContainer: {
+    padding: 5,
+    flex: 0.1,
     borderRadius: 10,
-    flexDirection: "row",
-    backgroundColor: "#aeaeb2",
+    flexDirection: "column",
   },
 });
 
 function SettingsRoot({ navigation }: RootSettingsScreenProps<"SettingsRoot">) {
   return (
-    <View style={globalStyles.container}>
+    <View style={globalStyles.container} lightColor="#f2f2f7">
       <TouchableOpacity
         style={styles.textInputButton}
         onPress={() => navigation.navigate("IPEdit")}
@@ -68,8 +66,12 @@ function SettingsRoot({ navigation }: RootSettingsScreenProps<"SettingsRoot">) {
 function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
   const [text, onChangeNumber] = useState(undefined);
   return (
-    <View style={globalStyles.container}>
-      <SectionView>
+    <View style={globalStyles.container} lightColor="#f2f2f7">
+      <View
+        style={styles.sectionViewContainer}
+        lightColor="#ffffff"
+        darkColor="#1c1c1e"
+      >
         <TextInput
           style={styles.input}
           onChangeText={text}
@@ -77,7 +79,7 @@ function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
           placeholder="IP Address"
           keyboardType="numeric"
         />
-      </SectionView>
+      </View>
     </View>
   );
 }
