@@ -88,8 +88,20 @@ function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
 const SettingScreen = () => {
   return (
     <Settings.Navigator initialRouteName="SettingsRoot">
-      <Settings.Screen name="SettingsRoot" component={SettingsRoot} />
-      <Settings.Screen name="IPEdit" component={IPEdit} />
+      <Settings.Screen
+        name="SettingsRoot"
+        component={SettingsRoot}
+        options={{ headerShown: false }}
+      />
+      <Settings.Screen
+        name="IPEdit"
+        component={IPEdit}
+        options={{
+          title: "",
+          headerTransparent: true,
+          headerBlurEffect: "systemUltraThinMaterial",
+        }}
+      />
     </Settings.Navigator>
   );
 };
