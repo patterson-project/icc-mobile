@@ -1,8 +1,8 @@
 import * as React from "react";
 
+import { IPInput, Text, View } from "../components/Themed";
 import { RootSettingsParamList, RootSettingsScreenProps } from "../types";
-import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { Text, View } from "../components/Themed";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import globalStyles from "../constants/Styles";
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     borderRadius: 10,
-    borderColor: "#a3a29e",
   },
   leftColumn: {
     borderRadius: 10,
@@ -72,8 +71,10 @@ function IPEdit({ navigation }: RootSettingsScreenProps<"IPEdit">) {
         lightColor="#ffffff"
         darkColor="#1c1c1e"
       >
-        <TextInput
+        <IPInput
           style={styles.input}
+          lightColor="#f2f2f7"
+          darkColor="#000000"
           onChangeText={text}
           value={text}
           placeholder="IP Address"
