@@ -1,11 +1,12 @@
-import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
-import { Pressable } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { RootTabParamList, RootTabScreenProps } from "../types";
-import TabOneScreen from "./TabOneScreen";
-import TabTwoScreen from "./TabTwoScreen";
+
+import { Colors } from "react-native/Libraries/NewAppScreen";
+import { FontAwesome } from "@expo/vector-icons";
+import { Pressable } from "react-native";
+import React from "react";
+import TabOneScreen from "./sceneScreens/TabOneScreen";
+import TabTwoScreen from "./sceneScreens/TabTwoScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import useColorScheme from "../hooks/useColorScheme";
 
 // an example of the bottom tab navigation to be used for scene page
